@@ -1,4 +1,3 @@
-import Sidebar from "@/components/Sidebar";
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 import BasicDetails from "@/page_components/BasicDetails";

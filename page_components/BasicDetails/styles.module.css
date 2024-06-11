@@ -27,7 +27,7 @@
 .edit_control {
     position: absolute;
     left: calc(100% + 36px);
-    top: 0;
+    top: -12px;
     display: flex;
     gap: 8px;
     align-items: center;

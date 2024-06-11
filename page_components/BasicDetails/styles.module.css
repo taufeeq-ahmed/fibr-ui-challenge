@@ -43,3 +43,29 @@
         cursor: pointer;
     }
 }
+
+.basic_details_form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .title_input {
+        font-size: 36px;
+        font-weight: 500;
+        color: #000;
+    }
+
+    .description_input {
+        color: #5B616D;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .form_actions {
+        margin-top: 4px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+    }
+}

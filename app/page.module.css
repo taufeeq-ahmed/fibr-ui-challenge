@@ -1,6 +1,23 @@
 .main {
     display: flex;
+    flex-direction: column;
     position: relative;
+    max-width: calc(100vw - 250px);
     top: 0;
     left: 250px;
+
+    .details {
+        width: 55%;
+        margin: auto;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .detail_card {
+        background-color: #fafaf9;
+        border-radius: 12px;
+        padding: 24px;
+    }
 }

@@ -1,0 +1,41 @@
+.basic_details {
+    position: relative;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.description {
+    color: #5B616D;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.edit_icon_container {
+    padding: 8px;
+    border-radius: 50%;
+    background: #f4f4f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.edit_control {
+    position: absolute;
+    left: calc(100% + 36px);
+    top: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #667bf6;
+    font-size: 0.75rem;
+
+    .edit_icon {
+        width: 1rem;
+        height: 1rem;
+    }
+}

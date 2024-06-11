@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from "./sidebar.module.css"
-import logo from '@/public/fibr_logo.svg'
-import magicIcon from '@/public/magic.svg'
-import experimentIcon from '@/public/experiment.svg'
-import brandsIcon from '@/public/brands.svg'
-import settingsIcon from '@/public/settings.svg'
+import logo from '@/public/icons/fibr_logo.svg'
+import magicIcon from '@/public/icons/magic.svg'
+import experimentIcon from '@/public/icons/experiment.svg'
+import brandsIcon from '@/public/icons/brands.svg'
+import settingsIcon from '@/public/icons/settings.svg'
 
 import Image from 'next/image'
 const SIDEBAR_ITEMS = [

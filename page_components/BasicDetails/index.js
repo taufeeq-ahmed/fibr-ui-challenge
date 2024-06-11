@@ -3,7 +3,7 @@ import styles from "./styles.module.css"
 import { Space_Grotesk } from "next/font/google";
 import Image from 'next/image';
 import markerIcon from '@/public/icons/marker.svg'
-import TextInput from '@/components/Input';
+
 
 const groteskFont = Space_Grotesk({ subsets: ["latin"] });
 

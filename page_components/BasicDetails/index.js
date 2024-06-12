@@ -22,12 +22,20 @@ function BasicDetails({
     } = useForm()
 
     useEffect(() => {
-        const brandData = localStorage.getItem("brandData");
-        if (brandData) {
-            const parsedData = JSON.parse(brandData);
-            if (parsedData.title) setValue("title", parsedData.title);
-            if (parsedData.description) setValue("description", parsedData.description);
+        let brandData = localStorage.getItem("brandData");
+        if (!brandData) {
+            const newData = {
+                title: "Fibr",
+                description: "Fibr is an AI-driven platform that leverages artificial intelligence to optimize business processes, enhance data analytics, and automate tasks to improve efficiency and decision-making."
+            }
+            localStorage.setItem("brandData", JSON.stringify(newData))
+            brandData = JSON.stringify(newData)
         }
+
+        const parsedData = JSON.parse(brandData);
+        if (parsedData?.title) setValue("title", parsedData.title);
+        if (parsedData?.description) setValue("description", parsedData.description);
+
     }, [setValue])
 
     const onSubmit = (data) => {

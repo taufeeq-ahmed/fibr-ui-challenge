@@ -1,0 +1,63 @@
+.colors {
+    .colors_heading {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+    }
+
+    .color_palette {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+
+        .color_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+
+            .color_text {
+                font-size: .75rem;
+                line-height: 1rem;
+                color: rgb(120 113 108);
+            }
+        }
+
+        .color {
+            width: 150px;
+            height: 100px;
+            border-radius: 12px;
+        }
+    }
+}
+
+.edit_control {
+    position: absolute;
+    min-width: 100px;
+    left: calc(100% + 12px);
+    top: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #667bf6;
+    font-size: 0.75rem;
+
+    .edit_icon_container {
+        padding: 8px;
+        border-radius: 50%;
+        background: #f4f4f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .edit_icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

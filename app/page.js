@@ -3,6 +3,7 @@
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 import BasicDetails from "@/page_components/BasicDetails";
+import Colors from "@/page_components/Colors";
 import ImageGuides from "@/page_components/ImageGuides";
 import Logos from "@/page_components/Logos";
 import NegativeKeywords from "@/page_components/NegativeKeywords";
@@ -25,6 +26,9 @@ export default function Home() {
           <Logos />
         </div>
         <div className={styles.detail_card}>
+          <Colors />
+        </div>
+        <div className={styles.detail_card}>
           <Restrictions />
         </div>
         {/* <div className={styles.detail_card}>
@@ -33,6 +37,7 @@ export default function Home() {
         <div className={styles.detail_card}>
           <NegativeKeywords />
         </div>
+
       </div>
     </main>
   );

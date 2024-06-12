@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import BasicDetails from "@/page_components/BasicDetails";
 import ImageGuides from "@/page_components/ImageGuides";
 import Logos from "@/page_components/Logos";
+import NegativeKeywords from "@/page_components/NegativeKeywords";
 import Restrictions from "@/page_components/Restrictions";
 
 import Values from "@/page_components/Values";
@@ -26,8 +27,11 @@ export default function Home() {
         <div className={styles.detail_card}>
           <Restrictions />
         </div>
-        <div className={styles.detail_card}>
+        {/* <div className={styles.detail_card}>
           <ImageGuides />
+        </div> */}
+        <div className={styles.detail_card}>
+          <NegativeKeywords />
         </div>
       </div>
     </main>

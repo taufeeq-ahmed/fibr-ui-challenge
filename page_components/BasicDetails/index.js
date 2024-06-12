@@ -90,6 +90,9 @@ function BasicDetails({ }) {
                     className={styles.basic_details_form}
                     onSubmit={handleSubmit(onSubmit)}
                 >
+                    <Button 
+                        
+                    />
                     <Input
                         size='lg'
                         className={styles.title_input}

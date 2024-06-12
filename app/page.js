@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import BasicDetails from "@/page_components/BasicDetails";
 import ImageGuides from "@/page_components/ImageGuides";
 import Logos from "@/page_components/Logos";
+import Values from "@/page_components/Values";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       <div className={styles.details}>
         <div className={styles.detail_card}>
           <BasicDetails />
+        </div>
+        <div className={styles.detail_card}>
+          <Values />
         </div>
         <div className={styles.detail_card}>
           <Logos />

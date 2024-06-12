@@ -6,25 +6,16 @@ import FilesInput from '@/components/FilesInput';
 import { useForm } from 'react-hook-form';
 import markerIcon from '@/public/icons/marker.svg';
 import binIcon from '@/public/icons/bin.svg'
+import BrandContent from './BrandContent';
 
 function ImageGuides() {
     const fileInputRef = useRef(null);
     const [mode, setMode] = useState("display");
-    const [objectUrls, setObjectUrls] = useState([]);
+
 
     const { register, handleSubmit, watch, setValue, trigger } = useForm();
     const watchedFiles = watch('imageFiles');
-
-    useEffect(() => {
-        // Create object URLs for the files
-        const newObjectUrls = (watchedFiles || []).map(file => URL.createObjectURL(file));
-        setObjectUrls(newObjectUrls);
-
-        // Cleanup object URLs when the component unmounts or watchedFiles change
-        return () => {
-            newObjectUrls.forEach(url => URL.revokeObjectURL(url));
-        };
-    }, [watchedFiles]);
+    const brandName = watch("brandName")
 
     const handleFilesInputClick = () => {
         if (fileInputRef.current) {
@@ -63,31 +54,6 @@ function ImageGuides() {
         setMode("display")
     };
 
-    const renderSelectedImages = (files) => {
-        if (!files || files.length === 0) return null;
-
-        const images = objectUrls.map((url, index) => (
-            <div
-                key={index}
-                className={styles.image}
-                style={{
-                    backgroundImage: `url(${url})`,
-                }}
-            />
-        ));
-        while (images.length < 9) {
-            images.push(
-                <div
-                    key={images.length}
-                    className={styles.image}
-                    style={{
-                        background: "#ebebeb",
-                    }}
-                />
-            )
-        }
-        return images
-    };
 
     return (
         <div className={styles.image_guides}>
@@ -99,58 +65,11 @@ function ImageGuides() {
                     brand guidelines
                 </p>
             </div>
-            <div className={styles.content}>
-                <div className={styles.images}>
-                    {renderSelectedImages(watchedFiles)}
-                </div>
-                <div className={styles.data}>
-                    <h3 className={styles.brand_name}>
-                        Cred Guide
-                    </h3>
-                    <span className={styles.bin_container}>
-                        <Image
-                            className={styles.bin_icon}
-                            src={binIcon}
-                            width={18}
-                            height={18}
-                        />
-                    </span>
-                    <ul className={styles.brand_details}>
-                        <li className={styles.detail}>
-                            <span className={styles.label}>
-                                LIGHTINGS
-                            </span>
-                            <span className={styles.stuff}>
-                                bright,contrasting
-                            </span>
-                        </li>
-                        <li className={styles.detail}>
-                            <span className={styles.label}>
-                                TONES
-                            </span>
-                            <span className={styles.stuff}>
-                                vibrant, energetic
-                            </span>
-                        </li>
-                        <li className={styles.detail}>
-                            <span className={styles.label}>
-                                STYLES
-                            </span>
-                            <span className={styles.stuff}>
-                                neon, cyberpunk, digital art
-                            </span>
-                        </li>
-                        <li className={styles.detail}>
-                            <span className={styles.label}>
-                                PERSPECTIVES
-                            </span>
-                            <span className={styles.stuff}>
-                                eye-level
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+
+            <BrandContent
+                images={watchedFiles}
+                brandName={brandName}
+            />
 
             {mode === "edit" && (
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

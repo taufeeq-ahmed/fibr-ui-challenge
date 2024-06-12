@@ -5,6 +5,7 @@ import { Button, Input } from '@chakra-ui/react';
 import FilesInput from '@/components/FilesInput';
 import { useForm } from 'react-hook-form';
 import markerIcon from '@/public/icons/marker.svg';
+import binIcon from '@/public/icons/bin.svg'
 
 function ImageGuides() {
     const fileInputRef = useRef(null);
@@ -43,17 +44,23 @@ function ImageGuides() {
         setMode("display");
     };
 
-    const handleSave = () => {
-        // Implement save functionality
-    };
+
 
     const onSubmit = (data) => {
         const files = data.imageFiles;
-        if (files && files.length > 0) {
-            console.log('Selected files:', files);
-        } else {
-            console.error('No files selected or files data is invalid.');
+        const parsedData = JSON.parse(localStorage.getItem("brandData"))
+
+        if (!parsedData["imagesGuide"]) {
+            parsedData["imagesGuide"] = []
         }
+        console.log(parsedData)
+        parsedData["imagesGuide"].push({
+            brandName: data.brandName,
+            files: files
+        })
+
+        localStorage.setItem("brandData", JSON.stringify(parsedData))
+        setMode("display")
     };
 
     const renderSelectedImages = (files) => {
@@ -99,8 +106,15 @@ function ImageGuides() {
                 <div className={styles.data}>
                     <h3 className={styles.brand_name}>
                         Cred Guide
-                        <span>x</span>
                     </h3>
+                    <span className={styles.bin_container}>
+                        <Image
+                            className={styles.bin_icon}
+                            src={binIcon}
+                            width={18}
+                            height={18}
+                        />
+                    </span>
                     <ul className={styles.brand_details}>
                         <li className={styles.detail}>
                             <span className={styles.label}>
@@ -112,37 +126,39 @@ function ImageGuides() {
                         </li>
                         <li className={styles.detail}>
                             <span className={styles.label}>
-                                LIGHTINGS
+                                TONES
                             </span>
                             <span className={styles.stuff}>
-                                bright,contrasting
+                                vibrant, energetic
                             </span>
                         </li>
                         <li className={styles.detail}>
                             <span className={styles.label}>
-                                LIGHTINGS
+                                STYLES
                             </span>
                             <span className={styles.stuff}>
-                                bright,contrasting
+                                neon, cyberpunk, digital art
                             </span>
                         </li>
                         <li className={styles.detail}>
                             <span className={styles.label}>
-                                LIGHTINGS
+                                PERSPECTIVES
                             </span>
                             <span className={styles.stuff}>
-                                bright,contrasting
+                                eye-level
                             </span>
                         </li>
                     </ul>
                 </div>
             </div>
+
             {mode === "edit" && (
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         className={styles.input}
                         placeholder='Ex: Portrait Guide'
                         size='lg'
+                        {...register('brandName')}
                     />
                     <input
                         type="file"
@@ -156,14 +172,14 @@ function ImageGuides() {
                     <FilesInput onClick={handleFilesInputClick} />
                     <div className={styles.form_actions}>
                         <Button
-                            colorScheme='#667bf6'
+                            colorScheme='#667bf6;'
                             variant='link'
                             onClick={handleCancel}
                         >
                             Cancel
                         </Button>
                         <Button
-                            colorScheme='#667bf6'
+                            colorScheme='#667bf6;'
                             variant='solid'
                             type='submit'
                         >

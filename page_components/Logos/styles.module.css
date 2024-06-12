@@ -17,8 +17,9 @@
 }
 
 .edit_control {
-    position: relative;
-    left: calc(100% + 36px);
+    position: absolute;
+    min-width: 100px;
+    left: calc(100% + 12px);
     top: 12px;
     display: flex;
     gap: 8px;

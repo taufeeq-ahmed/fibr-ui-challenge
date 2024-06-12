@@ -1,0 +1,16 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-3 h-3"
+    viewBox="0 0 256 256"
+    style="fill:#667bf6"
+>
+    <path fill="none" d="M0 0h256v256H0z" />
+    <path
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="24"
+        d="M40 128h176M128 40v176"
+    />
+</svg>

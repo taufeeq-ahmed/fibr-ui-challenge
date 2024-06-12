@@ -1,8 +1,9 @@
-"use client"
+"use client";
 
 import styles from "./page.module.css";
 import Header from "@/components/Header";
 import BasicDetails from "@/page_components/BasicDetails";
+import Logos from "@/page_components/Logos";
 
 export default function Home() {
   return (
@@ -10,10 +11,10 @@ export default function Home() {
       <Header />
       <div className={styles.details}>
         <div className={styles.detail_card}>
-          <BasicDetails
-            title={"Fibr"}
-            description={"Fibr is an AI-driven platform that leverages artificial intelligence to optimize business processes, enhance data analytics, and automate tasks to improve efficiency and decision-making."}
-          />
+          <BasicDetails />
+        </div>
+        <div className={styles.detail_card}>
+          <Logos />
         </div>
       </div>
     </main>

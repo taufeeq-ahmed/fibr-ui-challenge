@@ -8,9 +8,7 @@ import { useForm } from "react-hook-form"
 
 const groteskFont = Space_Grotesk({ subsets: ["latin"] });
 
-function BasicDetails({
-    title, description
-}) {
+function BasicDetails({ }) {
     const [mode, setMode] = useState("display")
 
     const {

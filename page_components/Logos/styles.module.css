@@ -1,0 +1,46 @@
+.logos_heading {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
+.selected_logos {
+    padding-top: 8px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+
+    .logo_image {
+        height: 30px;
+        width: auto;
+    }
+}
+
+.edit_control {
+    position: relative;
+    left: calc(100% + 36px);
+    top: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #667bf6;
+    font-size: 0.75rem;
+
+    .edit_icon_container {
+        padding: 8px;
+        border-radius: 50%;
+        background: #f4f4f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .edit_icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

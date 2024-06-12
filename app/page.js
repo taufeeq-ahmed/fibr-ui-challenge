@@ -17,9 +17,9 @@ export default function Home() {
         <div className={styles.detail_card}>
           <Logos />
         </div>
-        <div className={styles.detail_card}>
+        {/* <div className={styles.detail_card}>
           <ImageGuides />
-        </div>
+        </div> */}
       </div>
     </main>
   );

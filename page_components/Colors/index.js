@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 import plusIcon from '@/public/icons/plus.svg';
 import Image from 'next/image';
 import { SketchPicker } from "react-color";
+
 const DEFAULT_COLORS = [
     "#8A2828",
     "#AA42FF",

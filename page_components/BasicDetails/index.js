@@ -102,7 +102,7 @@ function BasicDetails({ }) {
                     />
                     <div className={styles.form_actions}>
                         <Button
-                            olorScheme='#667bf6;'
+                            colorScheme='#667bf6;'
                             variant='link'
                             onClick={handleCancel}
                         >

@@ -1,0 +1,131 @@
+.description {
+    .heading {
+        font-size: .875rem;
+        line-height: 1.25rem;
+        letter-spacing: .1em;
+    }
+
+    .paragraph {
+        font-size: .875rem;
+        line-height: 1.25rem;
+        margin-top: 0.25rem;
+    }
+}
+
+.content {
+    margin-top: 24px;
+
+    .images {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+        width: 35%;
+
+        .image {
+            background: "red";
+            width: 50px;
+            height: 50px;
+            background-position: center;
+            background-size: cover;
+            border-radius: 12px;
+        }
+    }
+
+    .data {
+        padding: 12px;
+        width: 65%;
+
+        .brand_name {
+            font-weight: 600;
+            font-size: 16px;
+            color: black;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .brand_details {
+            .detail {
+                padding: 6px;
+                border-bottom: 1px solid #ebebeb;
+
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .label {
+                    width: 40%;
+                    color: rgb(153 153 153);
+                    font-size: 10px;
+                }
+
+                .stuff {
+                    width: 60%;
+                    font-size: .875rem;
+                    line-height: 1.25rem;
+                }
+            }
+        }
+    }
+}
+
+.form {
+    padding-top: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .input {
+        background: #fff;
+        border-radius: 6px;
+        font-size: .875rem;
+        line-height: 1.25rem;
+    }
+
+    .form_actions {
+        margin-top: 4px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+.edit_control {
+    position: relative;
+    left: calc(100% + 36px);
+    top: 12px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: #667bf6;
+    font-size: 0.75rem;
+
+    .edit_icon_container {
+        padding: 8px;
+        border-radius: 50%;
+        background: #f4f4f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .edit_icon {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.images {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+}

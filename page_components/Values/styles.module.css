@@ -22,14 +22,13 @@
         flex-direction: column;
         gap: 1.5rem;
         margin-top: 0.75rem;
-
-        position: relative;
     }
 
     .edit_control {
         position: absolute;
-        right: -20%;
-        top: -25%;
+        min-width: 100px;
+        left: calc(100% + 12px);
+        top: 12px;
         display: flex;
         gap: 8px;
         align-items: center;

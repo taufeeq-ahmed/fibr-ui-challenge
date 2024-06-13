@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./styles.module.css"
 import markerIcon from '@/public/icons/marker.svg'
+import binIcon from '@/public/icons/bin.svg';
 import Image from 'next/image'
 import { useForm, useFieldArray } from 'react-hook-form'
 import { Button, Input, Textarea } from '@chakra-ui/react'
@@ -115,7 +116,12 @@ function Values() {
                                 onClick={() => remove(index)}
                                 className={styles.remove_button}
                             >
-                                Remove
+                                <Image
+                                    className={styles.remove_icon}
+                                    src={binIcon}
+                                    width={16}
+                                    height={16}
+                                />
                             </Button>
                         </div>
                     ))}

@@ -108,11 +108,11 @@
     }
 
     .form_actions {
-        margin-top: 4px;
+        margin-top: 12px;
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        gap: 24px;
+        gap: 32px;
     }
 }
 

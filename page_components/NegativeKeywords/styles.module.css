@@ -61,9 +61,9 @@
 }
 
 .form_actions {
-    margin-top: 14px;
+    margin-top: 12px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 8px;
+    gap: 32px;
 }

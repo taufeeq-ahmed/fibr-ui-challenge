@@ -24,6 +24,12 @@ function Colors() {
         setClickedColor(itemNumber)
     }
 
+    const handleRemoveColor = (e, color) => {
+        e.stopPropagation();
+        const updatedColors = colors.filter(c => c !== color)
+        setColors(updatedColors)
+    }
+
     const handleCloseColorPicker = () => {
         setClickedColor(null)
     }
@@ -71,6 +77,18 @@ function Colors() {
                                     width={24}
                                     height={24}
                                     alt="Icon"
+                                />
+                            </div>
+                            <div
+                                className={styles.remove_overlay}
+                                onClick={(e) => handleRemoveColor(e, color)}
+                            >
+                                <Image
+                                    src={plusIcon}
+                                    width={18}
+                                    height={18}
+                                    alt="Icon"
+                                    className={styles.remove_icon}
                                 />
                             </div>
                         </div>

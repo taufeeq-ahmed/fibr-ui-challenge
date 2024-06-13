@@ -8,6 +8,7 @@ import ImageGuides from "@/page_components/ImageGuides";
 import Logos from "@/page_components/Logos";
 import NegativeKeywords from "@/page_components/NegativeKeywords";
 import Restrictions from "@/page_components/Restrictions";
+import Tones from "@/page_components/Tones";
 
 import Values from "@/page_components/Values";
 
@@ -21,6 +22,9 @@ export default function Home() {
         </div>
         <div className={styles.detail_card}>
           <Values />
+        </div>
+        <div className={styles.detail_card}>
+          <Tones />
         </div>
         <div className={styles.detail_card}>
           <Logos />

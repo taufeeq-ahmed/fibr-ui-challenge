@@ -47,3 +47,14 @@ body {
   gap: 12px;
   flex-wrap: wrap;
 }
+
+.chakra-accordion>div {
+  * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.chakra-collapse>div {
+  padding: 0;
+}

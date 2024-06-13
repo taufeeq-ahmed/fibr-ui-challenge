@@ -9,7 +9,6 @@
         line-height: 1rem;
         margin-top: 0.5rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid #ebebeb;
     }
 
     .title {
@@ -166,4 +165,15 @@
     font-size: .875rem;
     line-height: 1.25rem;
     font-weight: 400;
+}
+
+.keywords_container {
+    padding-left: 14px;
+    margin-bottom: 12px;
+}
+
+.tone_heading {
+    font-size: .875rem;
+    line-height: 1.25rem;
+    font-weight: 600;
 }

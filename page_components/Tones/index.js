@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import styles from "./styles.module.css"
-import markerIcon from '@/public/icons/marker.svg'
-import binIcon from '@/public/icons/bin.svg'
-import Image from 'next/image'
-import { useForm, useFieldArray } from 'react-hook-form'
-import { Button, Input, Textarea } from '@chakra-ui/react'
+import React, { useState } from 'react';
+import styles from "./styles.module.css";
+import markerIcon from '@/public/icons/marker.svg';
+import binIcon from '@/public/icons/bin.svg';
+import Image from 'next/image';
+import { useForm, useFieldArray } from 'react-hook-form';
+import { Accordion, AccordionItem, AccordionButton, AccordionPanel, Box, AccordionIcon, Button, Input, Textarea } from '@chakra-ui/react';
 
 const DEFAULT_VALUES = [
     {
@@ -52,13 +52,13 @@ const DEFAULT_VALUES = [
             { value: "Trustworthiness", description: "Shares informative and useful content" }
         ]
     },
-]
+];
 
 function ToneForm({ control, register, index, remove }) {
     const { fields: keywordFields, append: appendKeyword, remove: removeKeyword } = useFieldArray({
         control,
         name: `tones.${index}.keywords`
-    })
+    });
 
     return (
         <div className={styles.tone_input_item}>
@@ -105,7 +105,7 @@ function ToneForm({ control, register, index, remove }) {
                     </div>
                 ))}
                 <Button
-                    colorScheme='#667bf6;'
+                    colorScheme='#667bf6'
                     variant='link'
                     onClick={() => appendKeyword({ value: "", description: "" })}
                     className={styles.add_keyword_button}
@@ -114,7 +114,7 @@ function ToneForm({ control, register, index, remove }) {
                 </Button>
             </div>
             <Button
-                color={"##111111;"}
+                color={"##111111"}
                 variant='link'
                 onClick={() => remove(index)}
                 className={styles.remove_button}
@@ -127,12 +127,12 @@ function ToneForm({ control, register, index, remove }) {
                 />
             </Button>
         </div>
-    )
+    );
 }
 
 function Values() {
-    const [mode, setMode] = useState("display")
-    const [formData, setFormData] = useState(DEFAULT_VALUES)
+    const [mode, setMode] = useState("display");
+    const [formData, setFormData] = useState(DEFAULT_VALUES);
 
     const {
         register,
@@ -144,25 +144,25 @@ function Values() {
         defaultValues: {
             tones: formData,
         }
-    })
+    });
 
     const { fields, append, remove } = useFieldArray({
         control,
         name: "tones"
-    })
+    });
 
     const handleAddValue = () => {
-        append({ title: "", description: "", keywords: [{ value: "", description: "" }] })
-    }
+        append({ title: "", description: "", keywords: [{ value: "", description: "" }] });
+    };
 
     const onSubmit = (data) => {
-        setFormData(data.tones)
-        setMode("display")
-    }
+        setFormData(data.tones);
+        setMode("display");
+    };
 
     const handleCancel = () => {
-        setMode("display")
-    }
+        setMode("display");
+    };
 
     return (
         <div className={styles.tones}>
@@ -175,21 +175,32 @@ function Values() {
 
             {mode === "display" ? (
                 <div className={styles.tones_list}>
-                    {formData.map((tone, index) => (
-                        <div key={index} className={styles.tone_item}>
-                            <h4 className={styles.title}>{tone.title}</h4>
-                            <p className={styles.description}>{tone.description}</p>
-                            <div className={styles.keywords_container}>
-                                {tone.keywords.map((k, i) => {
-                                    return (
+                    <Accordion>
+                        {formData.map((tone, index) => (
+                            <AccordionItem key={index}>
+
+                                <AccordionButton>
+                                    <Box flex='1' textAlign='left'>
+                                        <h2 className={styles.tone_heading}>
+                                            {tone.title}
+                                        </h2>
+                                    </Box>
+                                    <AccordionIcon />
+                                </AccordionButton>
+
+                                <AccordionPanel pb={4}>
+                                    <p className={styles.description}>{tone.description}</p>
+                                </AccordionPanel>
+                                <div className={styles.keywords_container}>
+                                    {tone.keywords.map((k, i) => (
                                         <div key={i} className={styles.keyword}>
                                             {k.value}
                                         </div>
-                                    )
-                                })}
-                            </div>
-                        </div>
-                    ))}
+                                    ))}
+                                </div>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
                     <div
                         className={styles.edit_control}
                         onClick={() => { setMode("edit") }}
@@ -211,7 +222,7 @@ function Values() {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <Button
-                        colorScheme='#667bf6;'
+                        colorScheme='#667bf6'
                         variant='link'
                         onClick={handleAddValue}
                         className={styles.addtone_button}
@@ -246,7 +257,7 @@ function Values() {
                 </form>
             )}
         </div>
-    )
+    );
 }
 
-export default Values
+export default Values;

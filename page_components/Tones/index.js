@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./styles.module.css"
 import markerIcon from '@/public/icons/marker.svg'
+import binIcon from '@/public/icons/bin.svg'
 import Image from 'next/image'
 import { useForm, useFieldArray } from 'react-hook-form'
 import { Button, Input, Textarea } from '@chakra-ui/react'
@@ -9,29 +10,98 @@ const DEFAULT_VALUES = [
     {
         title: "Default Brand Tone",
         description: "Fibr's brand voice is professional and informative, focusing on clarity and precision. The content is written in a formal tone with a direct approach, using technical vocabulary that appeals to a professional audience. The language is concise, with a focus on readability and straightforward sentence structures.",
-        keywords: ["Proffessionalism", "Informative", "Precision"]
+        keywords: [
+            { value: "Professionalism", description: "Demonstrates a high level of professionalism" },
+            { value: "Informative", description: "Provides valuable and informative content" },
+            { value: "Precision", description: "Ensures accuracy and precision in the information" }
+        ]
     },
     {
         title: "Fibr",
         description: "The brand voice is warm and nurturing, characterized by a positive and caring tone. It blends a clear and concise style with an emphasis on ethical and sustainable practices, enhancing emotional appeal through a thoughtful mix of sentence structures.",
-        keywords: ["Caring", "Trustworthiness", "Informative"]
+        keywords: [
+            { value: "Caring", description: "Shows a caring attitude towards customers" },
+            { value: "Trustworthiness", description: "Builds trust with reliable information" },
+            { value: "Informative", description: "Shares informative and useful content" }
+        ]
     },
-    {
-        title: "Mamaearth",
-        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures.",
-        keywords: ["Empathy", "Trustworthiness", "Enthusiasm"]
-    },
-    {
-        title: "Lipton",
-        description: "The brand voice is encouraging and informative, characterized by a supportive and authoritative tone. It blends a clear and concise style, enhancing engagement through a thoughtful mix of sentence structures.",
-        keywords: ["Informative", "Supportive", "Authoritative"]
-    },
-    {
-        title: "Spree",
-        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures.",
-        keywords: ["Caring", "Informative", "Trustworthiness"]
-    }
 ]
+
+function ToneForm({ control, register, index, remove }) {
+    const { fields: keywordFields, append: appendKeyword, remove: removeKeyword } = useFieldArray({
+        control,
+        name: `tones.${index}.keywords`
+    })
+
+    return (
+        <div className={styles.tone_input_item}>
+            <Input
+                type='text'
+                placeholder='Value'
+                {...register(`tones.${index}.title`)}
+                className={styles.input}
+            />
+            <Textarea
+                placeholder='Description'
+                rows={5}
+                {...register(`tones.${index}.description`)}
+                className={styles.input}
+            />
+            <div className={styles.keywords_section}>
+                {keywordFields.map((keyword, kIndex) => (
+                    <div key={keyword.id} className={styles.keyword_input_item}>
+                        <Input
+                            type='text'
+                            placeholder='Keyword'
+                            {...register(`tones.${index}.keywords.${kIndex}.value`)}
+                            className={styles.input}
+                        />
+                        <Textarea
+                            placeholder='Keyword Description'
+                            rows={3}
+                            {...register(`tones.${index}.keywords.${kIndex}.description`)}
+                            className={styles.textarea_input}
+                        />
+                        <Button
+                            colorScheme='red'
+                            variant='link'
+                            onClick={() => removeKeyword(kIndex)}
+                            className={styles.remove_keyword}
+                        >
+                            <Image
+                                className={styles.remove_keyword_icon}
+                                src={binIcon}
+                                width={16}
+                                height={16}
+                            />
+                        </Button>
+                    </div>
+                ))}
+                <Button
+                    colorScheme='#667bf6;'
+                    variant='link'
+                    onClick={() => appendKeyword({ value: "", description: "" })}
+                    className={styles.add_keyword_button}
+                >
+                    + Add Value
+                </Button>
+            </div>
+            <Button
+                color={"##111111;"}
+                variant='link'
+                onClick={() => remove(index)}
+                className={styles.remove_button}
+            >
+                <Image
+                    className={styles.remove_icon}
+                    src={binIcon}
+                    width={20}
+                    height={20}
+                />
+            </Button>
+        </div>
+    )
+}
 
 function Values() {
     const [mode, setMode] = useState("display")
@@ -55,7 +125,7 @@ function Values() {
     })
 
     const handleAddValue = () => {
-        append({ title: "", description: "" })
+        append({ title: "", description: "", keywords: [{ value: "", description: "" }] })
     }
 
     const onSubmit = (data) => {
@@ -83,10 +153,10 @@ function Values() {
                             <h4 className={styles.title}>{tone.title}</h4>
                             <p className={styles.description}>{tone.description}</p>
                             <div className={styles.keywords_container}>
-                                {tone.keywords.map((k) => {
+                                {tone.keywords.map((k, i) => {
                                     return (
-                                        <div className={styles.keyword}>
-                                            {k}
+                                        <div key={i} className={styles.keyword}>
+                                            {k.value}
                                         </div>
                                     )
                                 })}
@@ -122,28 +192,13 @@ function Values() {
                         + Add
                     </Button>
                     {fields.map((item, index) => (
-                        <div key={item.id} className={styles.tone_input_item}>
-                            <Input
-                                type='text'
-                                placeholder='Value'
-                                {...register(`tones.${index}.title`)}
-                                className={styles.input}
-                            />
-                            <Textarea
-                                placeholder='Description'
-                                rows={5}
-                                {...register(`tones.${index}.description`)}
-                                className={styles.input}
-                            />
-                            <Button
-                                colorScheme='red'
-                                variant='link'
-                                onClick={() => remove(index)}
-                                className={styles.remove_button}
-                            >
-                                Remove
-                            </Button>
-                        </div>
+                        <ToneForm
+                            key={item.id}
+                            control={control}
+                            register={register}
+                            index={index}
+                            remove={remove}
+                        />
                     ))}
                     <div className={styles.form_actions}>
                         <Button

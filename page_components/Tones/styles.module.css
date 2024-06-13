@@ -61,6 +61,22 @@
             cursor: pointer;
         }
     }
+
+    .keywords_container {
+        margin-top: 12px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+
+        .keyword {
+            background-color: #D6F1F8;
+            font-size: .75rem;
+            line-height: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+        }
+    }
 }
 
 .tones_form {

@@ -8,23 +8,28 @@ import { Button, Input, Textarea } from '@chakra-ui/react'
 const DEFAULT_VALUES = [
     {
         title: "Default Brand Tone",
-        description: "Fibr's brand voice is professional and informative, focusing on clarity and precision. The content is written in a formal tone with a direct approach, using technical vocabulary that appeals to a professional audience. The language is concise, with a focus on readability and straightforward sentence structures."
+        description: "Fibr's brand voice is professional and informative, focusing on clarity and precision. The content is written in a formal tone with a direct approach, using technical vocabulary that appeals to a professional audience. The language is concise, with a focus on readability and straightforward sentence structures.",
+        keywords: ["Proffessionalism", "Informative", "Precision"]
     },
     {
         title: "Fibr",
-        description: "The brand voice is warm and nurturing, characterized by a positive and caring tone. It blends a clear and concise style with an emphasis on ethical and sustainable practices, enhancing emotional appeal through a thoughtful mix of sentence structures."
+        description: "The brand voice is warm and nurturing, characterized by a positive and caring tone. It blends a clear and concise style with an emphasis on ethical and sustainable practices, enhancing emotional appeal through a thoughtful mix of sentence structures.",
+        keywords: ["Caring", "Trustworthiness", "Informative"]
     },
     {
         title: "Mamaearth",
-        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures."
+        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures.",
+        keywords: ["Empathy", "Trustworthiness", "Enthusiasm"]
     },
     {
         title: "Lipton",
-        description: "The brand voice is encouraging and informative, characterized by a supportive and authoritative tone. It blends a clear and concise style, enhancing engagement through a thoughtful mix of sentence structures."
+        description: "The brand voice is encouraging and informative, characterized by a supportive and authoritative tone. It blends a clear and concise style, enhancing engagement through a thoughtful mix of sentence structures.",
+        keywords: ["Informative", "Supportive", "Authoritative"]
     },
     {
         title: "Spree",
-        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures."
+        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures.",
+        keywords: ["Caring", "Informative", "Trustworthiness"]
     }
 ]
 
@@ -77,6 +82,15 @@ function Values() {
                         <div key={index} className={styles.tone_item}>
                             <h4 className={styles.title}>{tone.title}</h4>
                             <p className={styles.description}>{tone.description}</p>
+                            <div className={styles.keywords_container}>
+                                {tone.keywords.map((k) => {
+                                    return (
+                                        <div className={styles.keyword}>
+                                            {k}
+                                        </div>
+                                    )
+                                })}
+                            </div>
                         </div>
                     ))}
                     <div

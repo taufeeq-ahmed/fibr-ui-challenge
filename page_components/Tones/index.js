@@ -40,13 +40,13 @@ function Values() {
         formState: { errors },
     } = useForm({
         defaultValues: {
-            values: formData,
+            tones: formData,
         }
     })
 
     const { fields, append, remove } = useFieldArray({
         control,
-        name: "values"
+        name: "tones"
     })
 
     const handleAddValue = () => {
@@ -54,7 +54,7 @@ function Values() {
     }
 
     const onSubmit = (data) => {
-        setFormData(data.values)
+        setFormData(data.tones)
         setMode("display")
     }
 
@@ -63,16 +63,20 @@ function Values() {
     }
 
     return (
-        <div className={styles.values}>
-            <h3 className={styles.values_heading}>
-                VALUES
+        <div className={styles.tones}>
+            <h3 className={styles.tones_heading}>
+                TONES OF VOICE
             </h3>
+            <p className={styles.tones_subheading}>
+                Use different tones of voice to create custom content
+            </p>
+
             {mode === "display" ? (
-                <div className={styles.values_list}>
-                    {formData.map((value, index) => (
-                        <div key={index} className={styles.value_item}>
-                            <h4 className={styles.title}>{value.title}</h4>
-                            <p className={styles.description}>{value.description}</p>
+                <div className={styles.tones_list}>
+                    {formData.map((tone, index) => (
+                        <div key={index} className={styles.tone_item}>
+                            <h4 className={styles.title}>{tone.title}</h4>
+                            <p className={styles.description}>{tone.description}</p>
                         </div>
                     ))}
                     <div
@@ -92,29 +96,29 @@ function Values() {
                 </div>
             ) : (
                 <form
-                    className={styles.values_form}
+                    className={styles.tones_form}
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <Button
                         colorScheme='#667bf6;'
                         variant='link'
                         onClick={handleAddValue}
-                        className={styles.addvalue_button}
+                        className={styles.addtone_button}
                     >
                         + Add
                     </Button>
                     {fields.map((item, index) => (
-                        <div key={item.id} className={styles.value_input_item}>
+                        <div key={item.id} className={styles.tone_input_item}>
                             <Input
                                 type='text'
                                 placeholder='Value'
-                                {...register(`values.${index}.title`)}
+                                {...register(`tones.${index}.title`)}
                                 className={styles.input}
                             />
                             <Textarea
                                 placeholder='Description'
                                 rows={5}
-                                {...register(`values.${index}.description`)}
+                                {...register(`tones.${index}.description`)}
                                 className={styles.input}
                             />
                             <Button

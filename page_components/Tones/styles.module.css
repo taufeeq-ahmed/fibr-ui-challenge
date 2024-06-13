@@ -1,10 +1,10 @@
-.values {
-    .values_heading {
+.tones {
+    .tones_heading {
         font-size: 0.75rem;
         letter-spacing: 0.1em;
     }
 
-    .values_subheading {
+    .tones_subheading {
         font-size: .75rem;
         line-height: 1rem;
         margin-top: 0.5rem;
@@ -25,7 +25,7 @@
         margin-top: .25rem;
     }
 
-    .values_list {
+    .tones_list {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
@@ -63,7 +63,7 @@
     }
 }
 
-.values_form {
+.tones_form {
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -79,14 +79,14 @@
         line-height: 1.25rem;
     }
 
-    .value_input_item {
+    .tone_input_item {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 12px;
     }
 
-    .addvalue_button {
+    .addtone_button {
         position: absolute;
         top: -35px;
         left: 90%;

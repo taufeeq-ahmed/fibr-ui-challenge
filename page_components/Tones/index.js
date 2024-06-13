@@ -175,7 +175,7 @@ function Values() {
 
             {mode === "display" ? (
                 <div className={styles.tones_list}>
-                    <Accordion>
+                    <Accordion defaultIndex={[1]}>
                         {formData.map((tone, index) => (
                             <AccordionItem key={index}>
 

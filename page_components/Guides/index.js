@@ -22,8 +22,6 @@ const DEFAULT_BRANDS = [
     }
 ]
 
-
-
 function Guides() {
     const [brands, setBrands] = useState(DEFAULT_BRANDS)
 
@@ -52,6 +50,11 @@ function Guides() {
         trigger('imageFiles');
     };
 
+    const handleBrandDelete = (brandName) => {
+        const updatedBrands = brands.filter(br => br.brandName !== brandName)
+        setBrands(updatedBrands)
+    }
+
     const onSubmit = (data) => {
         const { brandName, imageFiles: images } = data
         const updatedBrands = [...brands]
@@ -60,6 +63,7 @@ function Guides() {
             images
         })
         setBrands(updatedBrands)
+        setMode("display")
     }
 
     return (
@@ -76,6 +80,7 @@ function Guides() {
                         <BrandData
                             images={brand.images}
                             brandName={brand.brandName}
+                            handleBrandDelete={handleBrandDelete}
                         />
                     )
                 })}

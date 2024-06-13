@@ -5,12 +5,10 @@ import Header from "@/components/Header";
 import BasicDetails from "@/page_components/BasicDetails";
 import Colors from "@/page_components/Colors";
 import Guides from "@/page_components/Guides";
-import ImageGuides from "@/page_components/ImageGuides";
 import Logos from "@/page_components/Logos";
 import NegativeKeywords from "@/page_components/NegativeKeywords";
 import Restrictions from "@/page_components/Restrictions";
 import Tones from "@/page_components/Tones";
-
 import Values from "@/page_components/Values";
 
 export default function Home() {

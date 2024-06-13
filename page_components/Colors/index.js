@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./styles.module.css"
 import plusIcon from '@/public/icons/plus.svg';
+import colorControl from '@/public/icons/colorControl.svg'
 import Image from 'next/image';
 import { SketchPicker } from "react-color";
 
@@ -37,13 +38,12 @@ function Colors() {
             <div className={styles.color_palette}>
                 {colors.map((color, i) => {
                     return (
-                        <div className={styles.color_container}>
+                        <div className={styles.color_container} key={i}>
                             <div
                                 className={styles.color}
                                 style={{
                                     backgroundColor: color
                                 }}
-                                onClick={(e) => handleColorClick(e, i)}
                             >
                                 <div
                                     className={styles.color_picker}
@@ -61,11 +61,19 @@ function Colors() {
                                     />
                                 </div>
                             </div>
-
                             <p className={styles.color_text}>{color}</p>
-
+                            <div
+                                className={styles.icon_overlay}
+                                onClick={(e) => handleColorClick(e, i)}
+                            >
+                                <Image
+                                    src={colorControl}
+                                    width={24}
+                                    height={24}
+                                    alt="Icon"
+                                />
+                            </div>
                         </div>
-
                     )
                 })}
             </div>

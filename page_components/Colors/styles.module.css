@@ -16,11 +16,31 @@
             justify-content: center;
             align-items: center;
             gap: 6px;
+            position: relative;
 
             .color_text {
                 font-size: .75rem;
                 line-height: 1rem;
                 color: rgb(120 113 108);
+            }
+
+            .icon_overlay {
+                display: none;
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 0, 0, 0.1);
+                fill: #fff;
+                padding: 1rem;
+                border-radius: 50%;
+                z-index: 10;
+            }
+
+            &:hover .icon_overlay {
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
 

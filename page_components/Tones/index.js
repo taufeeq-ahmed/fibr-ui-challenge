@@ -222,7 +222,7 @@ function Values() {
                     onSubmit={handleSubmit(onSubmit)}
                 >
                     <Button
-                        colorScheme='#667bf6'
+                        colorScheme='#667bf6;'
                         variant='link'
                         onClick={handleAddValue}
                         className={styles.addtone_button}

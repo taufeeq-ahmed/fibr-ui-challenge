@@ -25,6 +25,33 @@ const DEFAULT_VALUES = [
             { value: "Informative", description: "Shares informative and useful content" }
         ]
     },
+    {
+        title: "Mamaearth",
+        description: "The brand voice is warm and nurturing, characterized by an empathetic and trustworthy tone. It blends a clear and concise style with a touch of enthusiasm, enhancing engagement through a thoughtful mix of sentence structures.",
+        keywords: [
+            { value: "Empathy", description: "Shows a caring attitude towards customers" },
+            { value: "Trustworthiness", description: "Builds trust with reliable information" },
+            { value: "Enthusiasm", description: "Shares informative and useful content" }
+        ]
+    },
+    {
+        title: "Lipton",
+        description: "The brand voice is encouraging and informative, characterized by a supportive and authoritative tone. It blends a clear and concise style, enhancing engagement through a thoughtful mix of sentence structures.",
+        keywords: [
+            { value: "Informative", description: "Shows a caring attitude towards customers" },
+            { value: "Supportive", description: "Builds trust with reliable information" },
+            { value: "Authoritative", description: "Shares informative and useful content" }
+        ]
+    },
+    {
+        title: "Spree",
+        description: "The brand voice is caring and informative, characterized by a warm and reassuring tone. It blends a clear and concise style with an emphasis on quality and trustworthiness, enhancing readability and emotional appeal through a thoughtful mix of sentence structures.",
+        keywords: [
+            { value: "Caring", description: "Shows a caring attitude towards customers" },
+            { value: "Informative", description: "Builds trust with reliable information" },
+            { value: "Trustworthiness", description: "Shares informative and useful content" }
+        ]
+    },
 ]
 
 function ToneForm({ control, register, index, remove }) {

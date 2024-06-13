@@ -11,7 +11,7 @@
     gap: 16px;
 
     .logo_image {
-        height: 30px;
+        height: 50px;
         width: auto;
     }
 }
@@ -43,5 +43,32 @@
 
     &:hover {
         cursor: pointer;
+    }
+}
+
+.logos_container {
+    position: relative;
+
+    .remove_overlay {
+        display: none;
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        background: #fff;
+        /* fill: #fff; */
+        padding: 0.25rem;
+        border-radius: 50%;
+        z-index: 10;
+        box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
+        .remove_icon {
+            transform: rotate(45deg);
+        }
+    }
+
+    &:hover .remove_overlay {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

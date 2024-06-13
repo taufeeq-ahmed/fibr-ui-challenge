@@ -32,19 +32,38 @@ function Logos() {
         }
     };
 
+    const handleRemoveLogo = (file) => {
+        const updatedLogoFiles = watchedFiles.filter((wfile) => wfile.name !== file.name)
+        setValue("logoFiles", updatedLogoFiles)
+    }
+
     const renderSelectedImages = (files) => {
         if (!files || files.length === 0) return null;
 
         return Array.from(files).map((file, index) => (
 
-            <Image
-                src={URL.createObjectURL(file)}
-                height={60}
-                width={60}
-                key={index}
-                alt={`Selected logo ${index + 1}`}
-                className={styles.logo_image}
-            />
+            <div className={styles.logos_container}>
+                <Image
+                    src={URL.createObjectURL(file)}
+                    height={60}
+                    width={60}
+                    key={index}
+                    alt={`Selected logo ${index + 1}`}
+                    className={styles.logo_image}
+                />
+                <div
+                    className={styles.remove_overlay}
+                    onClick={(e) => handleRemoveLogo(file)}
+                >
+                    <Image
+                        src={plusIcon}
+                        width={18}
+                        height={18}
+                        alt="Icon"
+                        className={styles.remove_icon}
+                    />
+                </div>
+            </div>
 
         ));
     };
